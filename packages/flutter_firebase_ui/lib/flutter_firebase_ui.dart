@@ -2,6 +2,7 @@ library flutter_firebase_ui;
 
 export 'utils.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'login_view.dart';
 import 'utils.dart';
@@ -15,6 +16,7 @@ class SignInScreen extends StatefulWidget {
     this.signUpPasswordCheck,
     this.providers,
     this.color = Colors.white,
+    this.auth,
   }) : super(key: key);
 
   final String title;
@@ -23,6 +25,7 @@ class SignInScreen extends StatefulWidget {
   final List<ProvidersTypes> providers;
   final Color color;
   final bool signUpPasswordCheck;
+  final FirebaseAuth auth;
 
   @override
   _SignInScreenState createState() => new _SignInScreenState();
@@ -55,7 +58,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   new Expanded(
                       child: new LoginView(
                           providers: _providers,
-                          passwordCheck: _passwordCheck)),
+                          passwordCheck: _passwordCheck,
+                          auth: widget.auth ?? FirebaseAuth.instance)),
                   _footer
                 ],
               ));

@@ -10,26 +10,30 @@ import 'utils.dart';
 class LoginView extends StatefulWidget {
   final List<ProvidersTypes> providers;
   final bool passwordCheck;
+  final FirebaseAuth auth;
 
   LoginView({
     Key key,
     @required this.providers,
     this.passwordCheck,
+    this.auth,
   }) : super(key: key);
 
   @override
-  _LoginViewState createState() => new _LoginViewState();
+  _LoginViewState createState() => new _LoginViewState(auth);
 }
 
 class _LoginViewState extends State<LoginView> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth;
+
+  _LoginViewState(this._auth) : super();
 
   Map<ProvidersTypes, ButtonDescription> _buttons;
 
   _handleEmailSignIn() async {
     String value = await Navigator.of(context)
         .push(new MaterialPageRoute<String>(builder: (BuildContext context) {
-      return new EmailView(widget.passwordCheck);
+      return new EmailView(widget.passwordCheck, _auth);
     }));
 
     if (value != null) {
