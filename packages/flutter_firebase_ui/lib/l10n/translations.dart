@@ -6,6 +6,8 @@ class TranslationBundle {
 
   String get welcome => parent?.welcome;
 
+  String get signUpTitle => parent?.signUpTitle;
+
   String get emailLabel => parent?.emailLabel;
 
   String get nextButtonLabel => parent?.nextButtonLabel;
@@ -56,6 +58,8 @@ class _Bundle_fr extends TranslationBundle {
 
   @override
   String get welcome => r'Bienvenue';
+  @override
+  String get signUpTitle => 'Enregistrer un nouvel utilisateur';
   @override
   String get emailLabel => r'Adresse mail';
   @override
@@ -136,6 +140,8 @@ class _Bundle_en extends TranslationBundle {
   @override
   String get welcome => r'Welcome';
   @override
+  String get signUpTitle => 'Register new user';
+  @override
   String get emailLabel => r'Email';
   @override
   String get passwordLabel => r'Password';
@@ -212,6 +218,8 @@ class _Bundle_de extends TranslationBundle {
 
   @override
   String get welcome => r'Willkommen';
+  @override
+  String get signUpTitle => 'Neuen Benutzer registrieren';
   @override
   String get emailLabel => r'Email';
   @override
